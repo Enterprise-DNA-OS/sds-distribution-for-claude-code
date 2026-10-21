@@ -1,3 +1,7 @@
+---
+description: "Write a private archive of every domain record."
+---
+
 # /export
 
 Write a private archive of every domain record.

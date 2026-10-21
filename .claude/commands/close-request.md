@@ -1,3 +1,7 @@
+---
+description: "Close a request after current delivery evidence exists."
+---
+
 # /close-request
 
 Close a request after current delivery evidence exists.

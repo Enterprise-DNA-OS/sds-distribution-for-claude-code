@@ -1,3 +1,7 @@
+---
+description: "Record the authorised delivery contact."
+---
+
 # /add-customer
 
 Record the authorised delivery contact.

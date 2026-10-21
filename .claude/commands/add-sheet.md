@@ -1,3 +1,7 @@
+---
+description: "Register a supplier-issued version for review."
+---
+
 # /add-sheet
 
 Register a supplier-issued version for review.

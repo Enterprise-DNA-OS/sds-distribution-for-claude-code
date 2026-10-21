@@ -1,3 +1,7 @@
+---
+description: "Draft an internal customer distribution pack."
+---
+
 # /draft-pack
 
 Draft an internal customer distribution pack.

@@ -1,3 +1,7 @@
+---
+description: "Log an internal product follow-up."
+---
+
 # /log
 
 Log an internal product follow-up.

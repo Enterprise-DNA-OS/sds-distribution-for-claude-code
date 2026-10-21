@@ -1,3 +1,7 @@
+---
+description: "Read evidence recorded for completed external deliveries."
+---
+
 # /deliveries
 
 Read evidence recorded for completed external deliveries.

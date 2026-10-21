@@ -1,3 +1,7 @@
+---
+description: "Record the operator review and archive the supplied PDF."
+---
+
 # /approve-sheet
 
 Record the operator review and archive the supplied PDF.

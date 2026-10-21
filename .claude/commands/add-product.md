@@ -1,3 +1,7 @@
+---
+description: "Register a supplier product."
+---
+
 # /add-product
 
 Register a supplier product.

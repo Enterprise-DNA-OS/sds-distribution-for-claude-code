@@ -1,3 +1,7 @@
+---
+description: "Read document editions and review status."
+---
+
 # /sheets
 
 Read document editions and review status.

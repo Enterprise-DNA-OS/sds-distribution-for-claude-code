@@ -1,3 +1,7 @@
+---
+description: "Record a delivery already completed through an authorised channel."
+---
+
 # /record-delivery
 
 Record a delivery already completed through an authorised channel.

@@ -1,3 +1,7 @@
+---
+description: "Record a customer request and its agreed deadline."
+---
+
 # /add-request
 
 Record a customer request and its agreed deadline.

@@ -1,3 +1,7 @@
+---
+description: "Record the first supply obligation for a customer and product."
+---
+
 # /subscribe
 
 Record the first supply obligation for a customer and product.

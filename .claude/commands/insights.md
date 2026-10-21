@@ -1,3 +1,7 @@
+---
+description: "Answer ten questions across sheets, customers and evidence."
+---
+
 # /insights
 
 Answer ten questions across sheets, customers and evidence.

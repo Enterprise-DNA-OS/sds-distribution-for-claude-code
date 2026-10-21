@@ -1,3 +1,7 @@
+---
+description: "Validate and import a prepared DirectSDS export."
+---
+
 # /import
 
 Validate and import a prepared DirectSDS export.

@@ -1,3 +1,7 @@
+---
+description: "Read each customer, product, country and language obligation."
+---
+
 # /subscriptions
 
 Read each customer, product, country and language obligation.

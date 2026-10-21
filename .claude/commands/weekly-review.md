@@ -1,3 +1,7 @@
+---
+description: "Draft the Monday review from attention, review-due and compliance."
+---
+
 # /weekly-review
 
 Draft the Monday review from attention, review-due and compliance.

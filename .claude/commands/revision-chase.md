@@ -1,3 +1,7 @@
+---
+description: "Find customers whose old sheet has been replaced."
+---
+
 # /revision-chase
 
 Find customers whose old sheet has been replaced.

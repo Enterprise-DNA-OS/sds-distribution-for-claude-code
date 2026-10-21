@@ -1,3 +1,7 @@
+---
+description: "Read open customer requests and their agreed deadlines."
+---
+
 # /requests
 
 Read open customer requests and their agreed deadlines.

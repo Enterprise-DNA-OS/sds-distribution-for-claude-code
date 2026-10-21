@@ -1,3 +1,7 @@
+---
+description: "Read the customer contact register."
+---
+
 # /customers
 
 Read the customer contact register.

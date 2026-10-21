@@ -1,3 +1,7 @@
+---
+description: "Check evidence against the documented rules."
+---
+
 # /compliance
 
 Check evidence against the documented rules.

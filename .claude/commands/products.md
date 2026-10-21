@@ -1,3 +1,7 @@
+---
+description: "List product codes and suppliers."
+---
+
 # /products
 
 List product codes and suppliers.

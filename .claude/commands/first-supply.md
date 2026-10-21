@@ -1,3 +1,7 @@
+---
+description: "Find first supplies and country editions needing attention."
+---
+
 # /first-supply
 
 Find first supplies and country editions needing attention.

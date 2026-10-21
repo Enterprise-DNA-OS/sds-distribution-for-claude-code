@@ -1,3 +1,7 @@
+---
+description: "Read operator-labelled changes."
+---
+
 # /activity
 
 Read operator-labelled changes.

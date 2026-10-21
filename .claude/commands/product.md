@@ -1,3 +1,7 @@
+---
+description: "Read one product and its customer obligations."
+---
+
 # /product
 
 Read one product and its customer obligations.
