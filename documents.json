@@ -1,11 +1,35 @@
 [
   {
-    "name": "example",
-    "title": "TODO(author): the first document this industry must produce",
-    "for_each": "select gen_random_uuid() as id, 'Example' as name",
+    "name": "customer-pack",
+    "title": "Internal customer distribution pack",
+    "for_each": "select id,name from customers order by name",
     "file": "name",
     "sections": [
-      { "title": "Details", "sql": "select 'replace me' as item, $1::text as record_id" }
+      {
+        "title": "Current obligations",
+        "note": "Review the source PDF before delivery. This pack is not a safety data sheet.",
+        "sql": "select q.sku,q.product,q.country,q.language,q.version,q.issue from distribution_queue q join subscriptions s on s.id=q.id where s.customer_id=$1 order by q.sku"
+      },
+      {
+        "title": "Delivery evidence",
+        "sql": "select p.sku,sh.version,d.delivered_on,d.evidence from deliveries d join subscriptions s on s.id=d.subscription_id join products p on p.id=s.product_id join sheets sh on sh.id=d.sheet_id where s.customer_id=$1 order by d.delivered_on"
+      }
+    ]
+  },
+  {
+    "name": "supplier-review",
+    "title": "Internal supplier follow-up sheet",
+    "for_each": "select id,name from products order by sku",
+    "file": "name",
+    "sections": [
+      {
+        "title": "Document versions",
+        "sql": "select country,language,version,issued_on,status,review_ref from sheets where product_id=$1 order by issued_on desc"
+      },
+      {
+        "title": "Affected customers",
+        "sql": "select customer,country,language,issue from distribution_queue where sku=(select sku from products where id=$1) order by customer"
+      }
     ]
   }
 ]

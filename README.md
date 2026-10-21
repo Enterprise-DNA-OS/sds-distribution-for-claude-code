@@ -1,115 +1,122 @@
-<h1 align="center">SDS Distribution for Claude Code</h1>
+# SDS Distribution for Claude Code
 
-<p align="center">
-  <strong>The open-source safety sheet distribution desk that is just a database and Claude Code.</strong>
-</p>
+Your safety sheet distribution desk: product codes, supplier-issued documents, customer obligations and delivery evidence in a database you own. Built by Enterprise DNA. Runs with Claude Code, Codex, OpenCode or Cursor.
 
-<p align="center">
-  Created by <a href="https://www.enterprisedna.co"><strong>Enterprise DNA</strong></a>. Free and open source. Works with Claude Code, Codex, OpenCode or Cursor.
-</p>
+| Do it yourself | We customise it | We run it for you |
+|---|---|---|
+| Free, MIT. Follow the quick start. | Your product codes, review rules, documents and DirectSDS records. [Book a call](https://enterprisedna.co/omni/book/?offer=replace-software&utm_source=github&utm_medium=readme&utm_campaign=directsds). | Installed and operated through Omni by Enterprise DNA. One setup fee, then a retainer. [See your version](https://enterprisedna.co/omni/instead-of/directsds). |
 
-<!-- three-doors -->
-<table align="center">
-  <tr>
-    <td align="center"><strong>Do it yourself</strong><br/>Clone it, run it, own it. Free, MIT.<br/><a href="#quick-start">Quick start</a></td>
-    <td align="center"><strong>We customise it</strong><br/>Your fields, your rules, your DirectSDS data brought across.<br/><a href="https://enterprisedna.co/omni/book/?utm_source=github&utm_medium=readme&utm_campaign=directsds">Book a call</a></td>
-    <td align="center"><strong>We run it for you</strong><br/>Installed, connected and operated inside Omni. Setup fee, then a retainer.<br/><a href="https://enterprisedna.co/omni/instead-of/directsds?utm_source=github&utm_medium=readme&utm_campaign=directsds">How it works</a></td>
-  </tr>
-</table>
+## The bill and the desk
 
-<p align="center">
-  <a href="#what-is-this">What is this</a> &bull;
-  <a href="#why-no-front-end">Why no front end</a> &bull;
-  <a href="#quick-start">Quick start</a> &bull;
-  <a href="#the-commands">Commands</a> &bull;
-  <a href="#instead-of-directsds">Instead of DirectSDS</a> &bull;
-  <a href="#want-it-installed-and-run-for-you">Installed for you</a> &bull;
-  <a href="#license">License</a>
-</p>
+DirectSDS lists its Pro tier for 4,000 safety sheets at US$923 per month. Twelve monthly payments total US$11,076. This is a published tier calculation, not a verified customer's annual invoice or an annual-plan quote. [Vendor pricing](https://sdsmanager.com/us/pricing/?solution=distribution).
 
-<p align="center">
-  <img src="https://img.shields.io/badge/Node-20+-339933?style=flat-square" alt="Node 20+" />
-  <img src="https://img.shields.io/badge/PostgreSQL-any-336791?style=flat-square" alt="PostgreSQL" />
-  <img src="https://img.shields.io/badge/PGlite-embedded-3ecf8e?style=flat-square" alt="PGlite" />
-  <img src="https://img.shields.io/badge/License-MIT-yellow?style=flat-square" alt="MIT License" />
-</p>
-
----
-
-## What is this
-
-SDS Distribution for Claude Code does the job you pay DirectSDS for, as a Postgres database and a set of agent commands. There is no web front end. You open the folder in [Claude Code](https://claude.com/claude-code) (or Codex, OpenCode, Cursor: see `AGENTS.md`) and ask for what you want in plain language. It runs the right query, and it can answer questions the DirectSDS dashboard cannot.
-
-<!-- TODO(author): the annual bill. One sentence: what a 10 to 50 person business typically pays DirectSDS per year, all in, with a source. -->
-
-Want the same thing with a web front end, or built on a different stack? That is a customisation, and it is exactly what Enterprise DNA does: [book a call](https://enterprisedna.co/omni/book/?utm_source=github&utm_medium=readme&utm_campaign=directsds).
-
-<!-- TODO(author): two or three sentences on what this specific product covers and who it is for. -->
-
-## Why no front end
-
-- The front end was only ever there because the database was hard to talk to. That is no longer true.
-- Your data sits in plain Postgres tables you own. Any tool can read them. No export, no lock-in.
-- No seats, no tiers, no add-ons. Read [docs/why-no-front-end.md](docs/why-no-front-end.md) for the honest trade-offs too.
+This desk suits distributors who already hold supplier-issued safety data sheets (SDS). It manages document versions and distribution evidence. It does not classify chemicals, author or translate SDSs, certify compliance or send documents. Keep the supplier's actual PDF and the approved delivery channel. DirectSDS also provides automated delivery and hosted document access; those connections belong in a scoped installation.
 
 ## Quick start
-
-Sixty seconds, no database install (an embedded Postgres runs inside Node):
 
 ```bash
 git clone https://github.com/Enterprise-DNA-OS/sds-distribution-for-claude-code.git
 cd sds-distribution-for-claude-code
 npm install
+npm test
 npm run demo
+npm run view
+npm run docs
 ```
 
-Then open the folder in Claude Code and type a slash command. <!-- TODO(author): name the first command to try. -->
+Node 20 or later. PGlite runs locally; DATABASE_URL selects a dedicated PostgreSQL database. DATA_DIR selects local storage. Use a fresh database and npm run migrate for operational records. Never seed the demo into a business database. Demo businesses, documents, delivery receipts and reviews are fictional. Demo PDFs are not supplied and demo evidence cannot be used to record a real delivery.
 
-### Use it with your own Postgres or Supabase
+## Five weekly rituals
 
-Copy `.env.example` to `.env`, set `DATABASE_URL`, then `npm run migrate`. Same commands, shared data, no per-seat fee.
+Review first supplies, chase revised sheets, follow up ageing supplier documents, clear customer requests and reconcile delivery evidence. /weekly-review drafts a Monday note from attention, review-due and compliance. /draft-pack prepares an internal customer pack. Neither sends anything.
 
-## The commands
+## Commands
 
-<!-- TODO(author): a table of the slash commands in .claude/commands and what each one does. -->
+29 CLI commands and 32 slash recipes. [Full syntax](docs/cli.md).
 
-| Command | What it does |
-|---|---|
-| `/...` | ... |
+- /products: List product codes and suppliers.
+- /sheets: Read document editions and review status.
+- /customers: Read the customer contact register.
+- /subscriptions: Read each customer, product, country and language obligation.
+- /deliveries: Read evidence recorded for completed external deliveries.
+- /requests: Read open customer requests and their agreed deadlines.
+- /activity: Read operator-labelled changes.
+- /attention: Find missing sheets and outstanding delivery evidence.
+- /revision-chase: Find customers whose old sheet has been replaced.
+- /first-supply: Find first supplies and country editions needing attention.
+- /review-due: Chase unverified and ageing supplier documents.
+- /compliance: Check evidence against the documented rules.
+- /insights: Answer ten questions across sheets, customers and evidence.
+- /product: Read one product and its customer obligations.
+- /add-product: Register a supplier product.
+- /add-customer: Record the authorised delivery contact.
+- /add-sheet: Register a supplier-issued version for review.
+- /reject-sheet: Reject an unverified document with the reason retained.
+- /approve-sheet: Record the operator review and archive the supplied PDF.
+- /subscribe: Record the first supply obligation for a customer and product.
+- /record-delivery: Record a delivery already completed through an authorised channel.
+- /add-request: Record a customer request and its agreed deadline.
+- /close-request: Close a request after current delivery evidence exists.
+- /log: Log an internal product follow-up.
+- /import: Validate and import a prepared DirectSDS export.
+- /export: Write a private archive of every domain record.
+- /draft-pack: Draft an internal customer distribution pack.
+- /weekly-review: Draft the Monday review from attention, review-due and compliance.
+- /documents: Run `npm run docs`.
+- /view: Run `npm run view`.
+- /new-view: Read views.
+- /customise: Read CLAUDE.
 
-## Instead of directsds
+## Ten questions the desk answers today
 
-<!-- TODO(author): how to bring data across from DirectSDS; link docs/replace-directsds.md -->
+/insights answers these from the actual records. They are shipped cross-record reports, not a claim that DirectSDS cannot be configured to produce similar results.
 
-## Architecture
+1. Which customers have both overdue requests and outstanding revisions?
+2. Which suppliers have unverified sheets with customers waiting?
+3. Which customers need a different country edition of an existing product?
+4. Which approved revisions have no recorded deliveries at all?
+5. Which suppliers have ageing sheets still attached to customer obligations?
+6. How many outstanding obligations does each customer have?
+7. Which product and country combinations have multiple approved versions?
+8. Which customer requests lack a usable current sheet?
+9. Which customers have delivery evidence for an older revision only?
+10. Which registered products have no customer supply records?
 
-```
-sds-distribution-for-claude-code/
-  CLAUDE.md                 how the operator wants this run (routing table + house rules)
-  AGENTS.md                 the same, for Codex / OpenCode / Cursor / Gemini CLI
-  .claude/commands/         the slash commands
-  scripts/                  the CLI the commands drive
-  scripts/lib/db.mjs        one adapter: DATABASE_URL (pg) or embedded PGlite
-  supabase/migrations/      plain SQL schema
-  supabase/seed.sql         demo data
-  docs/                     the thesis and the migration guide
-```
+## Your first hour: ten things to ask for
 
-## Built for coding agents
+1. Put our name and logo on the internal packs.
+2. Show first supplies without delivery evidence.
+3. Show customers still linked to an old revision.
+4. Show supplier documents needing review.
+5. Separate Australian and New Zealand editions.
+6. Add our warehouse contact to a customer.
+7. Test our prepared DirectSDS export without saving it.
+8. Compare the imported counts with the source.
+9. Add our product division through /customise.
+10. Draft the weekly follow-up pack.
 
-The database, CLI and command recipes work with Claude Code, Codex, OpenCode or Cursor. Ask your coding agent for a new command and have it implement and test the change against the same records.
+## Review, then record
 
-## Contributing
+Every imported sheet starts unverified. Approval requires the operator's review reference, an HTTPS address under their control and the actual supplier PDF. The PDF is archived privately and hashed. Approval records human verification; it does not inspect scientific contents or prove that a URL is reachable. A pending version at least as recent as the current sheet blocks delivery recording until reviewed or rejected with a reason. /reject-sheet retains the rejected record and the operator reason. New approved versions must have later issue dates than the current edition. A same-day corrected edition needs an explicit model change through /customise, not a fabricated issue date.
 
-Issues and pull requests are welcome. Keep the shape: plain SQL, a small CLI, a slash command per recurring job, no front end.
+Country and language must match the customer's recorded obligation. Delivery recording requires the current approved edition, a matching archived PDF, a valid date and an external receipt reference. A draft is never proof of delivery. An ageing sheet is flagged from 60 days before its fifth anniversary; a sheet at least five years old cannot be approved or used for a new delivery record. Obtain an updated supplier document. These checks support the operator's duties, not a chemical-safety certification. [Rules and sources](docs/compliance.md).
 
-## Want it installed and run for you?
+## Views and paperwork
 
-Enterprise DNA installs SDS Distribution for Claude Code for your business, migrates your DirectSDS data, connects it to the rest of your tools, and runs it for you as part of **Omni**, our managed Command Center. One setup fee, then a monthly retainer.
+npm run view creates three branded, read-only snapshots: the distribution week, supplier review queue and evidence register. npm run docs creates customer distribution packs and supplier follow-up sheets. These internal documents are not safety data sheets. brand.json controls the name, logo and colours. [Why no front end](docs/why-no-front-end.md).
 
-- Book a call: [enterprisedna.co/omni/book](https://enterprisedna.co/omni/book/?offer=replace-software&utm_source=github&utm_medium=readme&utm_campaign=directsds)
-- Read more: [enterprisedna.co/omni/instead-of/directsds](https://enterprisedna.co/omni/instead-of/directsds?utm_source=github&utm_medium=readme&utm_campaign=directsds)
+## Move your records
 
-## License
+[Switching guide](docs/replace-directsds.md). DirectSDS documents an XLS export of product codes and permanent document links. Save a prepared eight-column extract as CSV, supply the mapping and import it in one command. Country, language, revision and supplier metadata must be confirmed from your source. Exported links still depend on the vendor: archive supplier PDFs and establish owned links before approving them.
 
-MIT. Copyright (c) 2026 Enterprise DNA.
+The import validates the whole file, rolls back on any bad row, skips identical repeats and rejects conflicting versions. Customer lists, subscriptions and historic delivery receipts are separate records and are not in this library import. Reconcile them before retiring an existing service.
+
+## Privacy and verification
+
+This version assumes a trusted local operator or dedicated database owner. Actor labels are not authenticated identities. The history is not tamper-proof. Shared deployment needs access controls, backups, a retention policy and tested delivery connections. Keep contacts, supplier documents, exports and internal packs private. The importer treats document links as text and never fetches them.
+
+An export includes all eight domain registers as JSON. It does not contain the PDF bytes. Back up both the database and the sibling sheets archive beneath .data, plus any owned document hosting. TEST_DATABASE_URL must be an empty disposable database. npm test checks every command, import rollback, edition matching, evidence guards, seed idempotence, HTML escaping and private drafts. Windows and PostgreSQL support is represented in the manual CI workflow; the verification note records actual runs.
+
+[Book Sam's 30-minute call](https://enterprisedna.co/omni/book/?offer=replace-software&utm_source=github&utm_medium=readme&utm_campaign=directsds). Omni by Enterprise DNA builds your fields, connections, screens and operational rules, then runs your version. One setup fee, then a retainer.
+
+MIT. Copyright 2026 Enterprise DNA. DirectSDS and SDS Manager are their owners' trademarks. This independent project is not affiliated with SDS Manager.

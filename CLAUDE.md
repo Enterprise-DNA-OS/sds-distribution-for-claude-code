@@ -1,43 +1,56 @@
-# SDS Distribution for Claude Code: operating instructions
+# SDS Distribution for Claude Code
 
-This file is the brain. Claude Code reads it at the start of every session. It says who this is for, how work gets done, and the one right way to do each recurring job.
+Read README.md and docs/cli.md. This is an internal document-control desk for a distributor, not an SDS author, hazard classifier, public safety portal or sending service.
 
-## Who this is for
+## One route for each job
 
-- **Business:** [YOUR BUSINESS]
-- **Operator:** [YOUR NAME], [your role]
-- **What matters most:** [the one or two outcomes you care about]
+Use .claude/commands/*.md. Every domain operation uses node scripts/sds.mjs. Read the current records before answering. Use --json to inspect exact fields. Do not issue ad hoc writes in place of the CLI. Schema changes use /customise, a numbered migration, and meaningful tests.
 
-Fill this in once. A worker with context knows. A worker without it guesses.
+## Rules
 
-## How to work
+- Never send a document, email or notification, or mark a draft as delivered.
+- Never invent a supplier review, receipt, source, date or chemical fact.
+- Never generate safety instructions or alter a supplier's PDF.
+- Keep product, country and language matching. Imported sheets stay unverified.
+- Approval is a human review record. The human supplies the PDF, owned address and reference.
+- Keep operational data, contacts, imports, PDFs, reports and exports private. Demo records are fictional.
+- Actor labels are not authentication; the trusted database owner is the current access boundary.
+- Run npm test after a behavioural change. Never seed a business database.
+- Prose contains no em dashes or promotional buzzwords.
 
-1. **Take a brief, not a script.** The operator describes the outcome. You run the right command and present the answer.
-2. **Read before you write.** Before drafting anything about a record, read its full history first.
-3. **Plain language.** Short sentences. No filler. Numbers in tables.
-4. **Silent success, loud problems.** No play-by-play. Say what broke and what you did about it.
-5. **Stop at the line.** Anything that sends, deletes, or faces a customer waits for a yes in this session.
+## Routes
 
-## Routing table: one right way for each recurring job
+- products: .claude/commands/products.md
+- sheets: .claude/commands/sheets.md
+- customers: .claude/commands/customers.md
+- subscriptions: .claude/commands/subscriptions.md
+- deliveries: .claude/commands/deliveries.md
+- requests: .claude/commands/requests.md
+- activity: .claude/commands/activity.md
+- attention: .claude/commands/attention.md
+- revision-chase: .claude/commands/revision-chase.md
+- first-supply: .claude/commands/first-supply.md
+- review-due: .claude/commands/review-due.md
+- compliance: .claude/commands/compliance.md
+- insights: .claude/commands/insights.md
+- product: .claude/commands/product.md
+- add-product: .claude/commands/add-product.md
+- add-customer: .claude/commands/add-customer.md
+- add-sheet: .claude/commands/add-sheet.md
+- reject-sheet: .claude/commands/reject-sheet.md
+- approve-sheet: .claude/commands/approve-sheet.md
+- subscribe: .claude/commands/subscribe.md
+- record-delivery: .claude/commands/record-delivery.md
+- add-request: .claude/commands/add-request.md
+- close-request: .claude/commands/close-request.md
+- log: .claude/commands/log.md
+- import: .claude/commands/import.md
+- export: .claude/commands/export.md
+- draft-pack: .claude/commands/draft-pack.md
+- weekly-review: .claude/commands/weekly-review.md
+- documents: .claude/commands/documents.md
+- view: .claude/commands/view.md
+- new-view: .claude/commands/new-view.md
+- customise: .claude/commands/customise.md
 
-| When the operator asks for... | Use this |
-|---|---|
-| <!-- TODO(author): one row per slash command --> | `/...` |
-
-If an ask fits nothing here, run the CLI directly (`npm run <cli> -- --help`) and then propose a new command for it.
-
-## Hard rules
-
-- Never send email or messages from here. Draft to `drafts/`, a person sends.
-- Never delete records without an explicit yes in this session. Prefer marking closed or archived.
-- Never invent a record. If a name is ambiguous, list the candidates and ask.
-- The database is the source of truth. If the answer is not in it, say so.
-
-## Where things live
-
-- `scripts/` the CLI. `scripts/lib/db.mjs` picks `DATABASE_URL` (Postgres, Supabase) or the embedded database in `.data/`.
-- `supabase/migrations/` the schema, plain SQL. `npm run migrate` applies it.
-- `.claude/commands/` the slash commands. Add one every time the same ask comes twice.
-- `docs/` the thesis and the guide for moving off DirectSDS.
-
-Built by Enterprise DNA. Installed and run for you as part of Omni: https://enterprisedna.co/omni/instead-of/directsds
+Omni by Enterprise DNA installs and runs your version: https://enterprisedna.co/omni/book/?offer=replace-software&utm_source=github&utm_medium=readme&utm_campaign=directsds

@@ -1,0 +1,10 @@
+{
+  "sku": "SKU",
+  "name": "Product name",
+  "supplier": "Supplier",
+  "country": "Country",
+  "language": "Language",
+  "version": "Version",
+  "issued_on": "Revision date",
+  "source_url": "SDS URL"
+}

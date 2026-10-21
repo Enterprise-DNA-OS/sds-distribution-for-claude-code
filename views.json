@@ -1,13 +1,36 @@
 [
   {
     "name": "week",
-    "title": "This week",
-    "subtitle": "SDS Distribution for Claude Code: what needs attention, rendered by npm run view",
+    "title": "Distribution week",
+    "subtitle": "Internal working snapshot. Not proof of delivery.",
     "sections": [
       {
-        "title": "Needs attention",
-        "note": "TODO(author): point this at the industry's attention view (overdue, stuck, quiet).",
-        "sql": "select 'replace me' as item, 'TODO(author)' as why"
+        "title": "Outstanding sheet obligations",
+        "sql": "select customer,sku,country,language,version,issue from distribution_queue where issue <> 'Current delivery recorded' order by customer,sku"
+      },
+      {
+        "title": "Customer requests",
+        "sql": "select customer,sku,reason,due_on,overdue from request_queue order by due_on"
+      }
+    ]
+  },
+  {
+    "name": "supplier-review",
+    "title": "Supplier review desk",
+    "sections": [
+      {
+        "title": "Unverified and ageing sheets",
+        "sql": "select sku,country,version,issued_on,status,issue from review_queue order by issued_on"
+      }
+    ]
+  },
+  {
+    "name": "evidence",
+    "title": "Delivery evidence register",
+    "sections": [
+      {
+        "title": "Recorded deliveries",
+        "sql": "select c.name customer,p.sku,sh.country,sh.version,d.delivered_on,d.evidence,d.actor from deliveries d join sheets sh on sh.id=d.sheet_id join products p on p.id=sh.product_id join subscriptions s on s.id=d.subscription_id join customers c on c.id=s.customer_id order by d.delivered_on desc"
       }
     ]
   }
