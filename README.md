@@ -4,7 +4,7 @@ Your safety sheet distribution desk: product codes, supplier-issued documents, c
 
 | Do it yourself | We customise it | We run it for you |
 |---|---|---|
-| Free, MIT. Follow the quick start. | Your product codes, review rules, documents and DirectSDS records. [Book a call](https://enterprisedna.co/omni/book/?offer=replace-software&utm_source=github&utm_medium=readme&utm_campaign=directsds). | Installed and operated through Omni by Enterprise DNA. One setup fee, then a retainer. [See your version](https://enterprisedna.co/omni/instead-of/directsds). |
+| Free, MIT. Follow the quick start. | Your product codes, review rules, documents and DirectSDS records. [Book a call](https://enterprisedna.co/omni/book/?offer=replace-software&utm_source=github&utm_medium=readme&utm_campaign=directsds). | Installed and operated through Omni by Enterprise DNA. One setup fee, then a retainer. [See your version](https://enterprisedna.co/omni/instead-of/directsds?utm_source=github&utm_medium=readme&utm_campaign=directsds). |
 
 ## The bill and the desk
 
